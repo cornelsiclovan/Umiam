@@ -1,8 +1,12 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{{ title }}{% endblock %}
+{% block title %}
+
+    {{ title }}
+{% endblock %}
 
 {% block body %}
+    {{ parent() }}
 <h1>Manage this place: {{ title }}</h1>
 <table>
     <tr>

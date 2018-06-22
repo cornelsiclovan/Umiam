@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/../the_spacebar/.idea/the_spacebar.iml" filepath="$PROJECT_DIR$/../the_spacebar/.idea/the_spacebar.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/umiam.iml" filepath="$PROJECT_DIR$/.idea/umiam.iml" />
     </modules>
   </component>
