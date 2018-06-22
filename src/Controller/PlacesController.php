@@ -10,9 +10,10 @@ namespace App\Controller;
 
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 
-class PlacesController
+class PlacesController extends AbstractController
 {
     /**
      * @Route("/")
@@ -27,9 +28,8 @@ class PlacesController
      */
     public function show($slug)
     {
-        return new Response(sprintf(
-            'bla "%s"',
-            $slug
-            ));
+        return $this->render('places/show.html.twig', [
+            'title' => ucwords(str_replace('-', ' ', $slug))
+        ]);
     }
 }
