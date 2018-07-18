@@ -22,7 +22,7 @@
                     <td >{{ place }}</td>
                     <td>dummy city</td>
                     <td>dummy address</td>
-                    <td><a href="{{ path('place_show', { slug: place}) }}">manage</a></td>
+                    <td><a href="{{ path('place_show', { slug: place.slug}) }}">Edit</a></td>
                 </tr>
                 {% endfor %}
             </table>

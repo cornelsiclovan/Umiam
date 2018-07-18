@@ -35,12 +35,29 @@ class PlacesController extends AbstractController
     /**
      * @Route("/places/{slug}", name="place_show")
      */
-    public function show($slug)
+    public function show($slug, Place $place, EntityManagerInterface $em)
     {
 
+        $repository = $em->getRepository(Place::class);
+
+        /** @var Place $place */
+        $place = $repository->findOneBy(['slug' => $slug]);
+
+
+        if(!$place){
+            throw $this->createNotFoundException(sprintf('No place for slug "%s"', $slug));
+        }
+
         return $this->render('places/show.html.twig', [
-            'title' => ucwords(str_replace('-', ' ', $slug))
+            'place' => $place,
         ]);
+    }
+
+    /**
+     * @Route("/menus/{slug}")
+     */
+    public function showMenus($slug){
+
     }
 
     /**
@@ -49,8 +66,8 @@ class PlacesController extends AbstractController
     public function new(EntityManagerInterface $em)
     {
         $place = new Place();
-        $place->setName("locatie 1")
-            ->setSlug("locatie 1")
+        $place->setName("locatie")
+            ->setSlug("locatie-".rand(100,999))
             ->setAddress("adresa locatie 1")
             ->setCity("Timisoara")
             ->setEmail("loc1@gmail.com")

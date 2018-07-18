@@ -3,12 +3,15 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Timestampable\Traits\TimestampableEntity;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\PlaceRepository")
  */
 class Place
 {
+    use TimestampableEntity;
+
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -55,6 +58,12 @@ class Place
      * @ORM\Column(type="string", length=255)
      */
     private $slug;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\StaffUser", inversedBy="places")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $staffuser;
 
     public function getId()
     {
@@ -160,5 +169,17 @@ class Place
     public function __toString()
     {
         return $this->getName();
+    }
+
+    public function getStaffuser(): ?StaffUser
+    {
+        return $this->staffuser;
+    }
+
+    public function setStaffuser(?StaffUser $staffuser): self
+    {
+        $this->staffuser = $staffuser;
+
+        return $this;
     }
 }

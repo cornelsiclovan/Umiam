@@ -2,43 +2,27 @@
 
 {% block title %}
 
-    {{ title }}
+    {{ place.name }}
 {% endblock %}
 
 {% block body %}
     {{ parent() }}
-<h1>Manage this place: {{ title }}</h1>
-<table>
-    <tr>
-        <th>Name</th>
-        <th>City</th>
-        <th>Address</th>
-        <th>Action</th>
-    </tr>
-    <tr>
-        <td>dummy name</td>
-        <td>dummy city</td>
-        <td>dummy address</td>
-        <td>manage</td>
-    </tr>
-    <tr>
-        <td>dummy name</td>
-        <td>dummy city</td>
-        <td>dummy address</td>
-        <td>manage</td>
-    </tr>
-    <tr>
-        <td>dummy name</td>
-        <td>dummy city</td>
-        <td>dummy address</td>
-        <td>manage</td>
-    </tr>
-    <tr>
-        <td>dummy name</td>
-        <td>dummy city</td>
-        <td>dummy address</td>
-        <td>manage</td>
-    </tr>
+    <div class="row">
+        <div class="col-sm-12">
+            <h1 class="">Manage place: {{ place.name }}</h1>
+            <table class="table table-striped">
+                <tr>
+                    <td scope="col">#</td>
+                    <th scope="col">Name</th>
+                    <th scope="col">City</th>
+                    <th scope="col">Address</th>
+                    <th scope="col">Action</th>
+                </tr>
 
-</table>
+
+
+
+            </table>
+        </div>
+    </div>
 {% endblock %}
